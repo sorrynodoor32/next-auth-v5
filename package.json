@@ -2,6 +2,7 @@
   "name": "next-auth-v5",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -30,12 +31,14 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/next-auth": "^3.15.0",
     "@types/node": "^20.12.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
+    "bcryptjs": "^2.4.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.2",
     "eslint-config-prettier": "^9.1.0",
@@ -46,9 +49,10 @@
     "prisma": "^5.13.0",
     "rimraf": "^5.0.5",
     "tailwindcss": "^3.4.1",
+    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5"
+    "typescript": "v4.9"
   }
 }
