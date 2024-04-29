@@ -9,8 +9,9 @@ import {
 
 const { auth } = NextAuth(authConfig)
 
-export default auth((req: any) => {
+export default auth((req) => {
     const { nextUrl } = req
+    console.log(nextUrl)
     const isLoggedIn = !!req.auth
     // console.log(isLoggedIn)
 
