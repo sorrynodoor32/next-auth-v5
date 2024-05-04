@@ -1,5 +1,8 @@
 "use client"
 import { useRouter } from 'next/navigation'
+import { Dialog, DialogTrigger } from "@/components/ui/dialog"
+import { DialogContent } from '@radix-ui/react-dialog'
+import { LoginForm } from './login-form'
 
 interface LoginButtonProps {
     children: React.ReactNode
@@ -7,7 +10,7 @@ interface LoginButtonProps {
     asChild?: boolean
 }
 
-export const LoginButton: React.FC<LoginButtonProps> = ({ children, mode = "redirect", asChild }) => {
+export const LoginButton = ({ children, mode = "redirect", asChild }: LoginButtonProps) => {
 
     const router = useRouter()
 
@@ -17,9 +20,14 @@ export const LoginButton: React.FC<LoginButtonProps> = ({ children, mode = "redi
 
     if (mode === "modal") {
         return (
-            <span>
-                TODO: Implement modal
-            </span>
+            <Dialog>
+                <DialogTrigger asChild={asChild}>
+                    {children}
+                </DialogTrigger>
+                <DialogContent className='p-0 w-auto bg-transparent border-none'>
+                    <LoginForm />
+                </DialogContent>
+            </Dialog>
         )
     }
 

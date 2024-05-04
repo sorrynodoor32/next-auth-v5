@@ -19,7 +19,7 @@ export default function Home() {
           A simple authentication service
         </p>
         <div>
-          <LoginButton >
+          <LoginButton asChild>
             <Button variant="secondary" size='lg'>Sign in</Button>
           </LoginButton>
         </div>

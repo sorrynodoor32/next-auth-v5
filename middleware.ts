@@ -11,7 +11,7 @@ const { auth } = NextAuth(authConfig)
 
 export default auth((req) => {
     const { nextUrl } = req
-    console.log(nextUrl)
+    // console.log(nextUrl)
     const isLoggedIn = !!req.auth
     // console.log(isLoggedIn)
 
@@ -31,7 +31,14 @@ export default auth((req) => {
     }
 
     if (!isLoggedIn && !isPublicRoute) {
-        return Response.redirect(new URL("/auth/login", nextUrl))
+        let callbackUrl = nextUrl.pathname
+        if (nextUrl.search) {
+            callbackUrl += nextUrl.search
+        }
+
+        const encodedCallbackUrl = encodeURIComponent(callbackUrl)
+
+        return Response.redirect(new URL(`/auth/login?callbackUrl=${encodedCallbackUrl}`, nextUrl))
     }
     return null
 })
